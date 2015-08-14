@@ -235,9 +235,13 @@ Firebug.NetExport.Automation = extend(Firebug.Module,
         var name = loc ? loc.host : "unknown";
         name = name.replace(/\:/gm, "-", "");
 
-        var fileName = name + "+" + now.getFullYear() + "-" +
-            f(now.getMonth()+1) + "-" + f(now.getDate()) + "+" + f(now.getHours()) + "-" +
-            f(now.getMinutes()) + "-" + f(now.getSeconds());
+        var fileName = Firebug.getPref(prefDomain, "harFileName");
+        if(fileName === undefined || fileName == "")
+        {
+            fileName = name + "+" + now.getFullYear() + "-" +
+                f(now.getMonth()+1) + "-" + f(now.getDate()) + "+" + f(now.getHours()) + "-" +
+                f(now.getMinutes()) + "-" + f(now.getSeconds());
+        }
 
         // Default file extension is zip if compressing is on, otherwise just har.
         var fileExt = ".har";

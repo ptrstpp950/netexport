@@ -13,6 +13,9 @@ pref("extensions.firebug.netexport.compress", false);
 // Default log directory for auto-exported HAR files.
 pref("extensions.firebug.netexport.defaultLogDir", "");
 
+// Forces auto-exported HAR files name
+pref("extensions.firebug.netexport.harFileName", "");
+
 // Show preview of exported data by default.
 pref("extensions.firebug.netexport.showPreview", true);
 
